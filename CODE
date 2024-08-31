@@ -1,4 +1,4 @@
-Arduino interfacing with lcd
+#Arduino interfacing with lcd
 
 #include<LiquidCrystal.h> LiquidCrystal lcd(12, 11, 5, 4, 3, 2); // sets the interfacing pins 
 void setup() { 
@@ -8,3 +8,19 @@ void loop() {
 lcd.print("HELLO WORLD"); 
 }
 
+#Arduino interfacing with esp8266
+
+void setup()
+{
+Serial.begin(9600);  
+Serial1.begin(9600);
+}
+void loop()
+{    
+while (Serial1.available()) {
+Serial.write(Serial1.read());   
+}
+while (Serial.available()) {
+Serial1.write(Serial.read());   
+}
+}
